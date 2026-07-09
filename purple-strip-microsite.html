@@ -201,25 +201,53 @@
   .proof-row .p span{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
   @media(min-width:820px){.proof-row{grid-template-columns:repeat(4,1fr)}}
 
-  /* ================= 6. REASONS — editorial split, oversized number mark, no icon cards ================= */
-  #features{background:var(--cream);padding:120px 0}
-  .feat-grid{display:grid;grid-template-columns:1fr;gap:44px}
-  .feat-copy .eyebrow{display:block;margin-bottom:18px}
-  .feat-copy h2{font-size:clamp(32px,7.5vw,50px);margin-bottom:36px;max-width:11ch}
-  .feat-list{display:flex;flex-direction:column}
-  .freason{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
-  .freason:last-child{border-bottom:1px solid var(--line)}
-  .freason .fn{font-family:'Spectral';font-size:15px;color:var(--muted)}
-  .freason b{font-family:'Spectral';font-size:19px;display:block;margin-bottom:4px}
-  .freason span{font-size:14px;color:var(--muted);line-height:1.5}
-  .feat-photo{border-radius:0;overflow:hidden;position:relative}
-  .feat-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 15%;transition:transform .6s ease}
-  .feat-photo:hover img{transform:scale(1.04)}
+  /* ================= 6. RESULTS & BENEFITS — outcome-led, editorial, aspirational (not a feature repeat) ================= */
+  #features{background:var(--cream)}
+
+  /* moment A: lifestyle hero — dominant image, quiet outcome statement */
+  .res-hero{display:grid;grid-template-columns:1fr;padding:0}
+  .res-photo{line-height:0}
+  .res-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 15%}
+  .res-copy{padding:44px 24px 64px;max-width:560px}
+  .res-copy .eyebrow{display:block;margin-bottom:16px}
+  .res-copy h2{font-size:clamp(28px,7vw,42px);margin-bottom:14px;max-width:12ch}
+  .res-copy p{font-size:16px;color:var(--muted);line-height:1.55;max-width:38ch}
   @media(min-width:900px){
-    .feat-grid{grid-template-columns:1.05fr .95fr;gap:70px;align-items:start}
-    .feat-photo{order:2;align-self:stretch}
-    .feat-photo img{height:100%;aspect-ratio:auto}
+    .res-hero{grid-template-columns:1.1fr .9fr;align-items:center;gap:60px;padding:0 24px;max-width:1180px;margin:0 auto}
+    .res-photo{order:2;border-radius:20px;overflow:hidden;align-self:stretch}
+    .res-photo img{height:100%;aspect-ratio:auto}
+    .res-copy{order:1;padding:0;max-width:none}
   }
+
+  /* moment B: shade comparison — abstract visual, swipeable on mobile, no photos of teeth needed */
+  .shade-block{padding:80px 0;text-align:center}
+  .shade-block .eyebrow{display:block;margin-bottom:14px}
+  .shade-block h3{font-family:'Spectral';font-size:clamp(20px,4.6vw,26px);font-weight:600;margin-bottom:32px}
+  .shade-row{display:flex;gap:14px;overflow-x:auto;padding:4px 24px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+            scrollbar-width:none;justify-content:flex-start}
+  .shade-row::-webkit-scrollbar{display:none}
+  .shade{flex:0 0 auto;scroll-snap-align:center;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+        font-size:11px;font-weight:600;color:var(--muted);opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+  .shade-row.play .shade{opacity:1;transform:none}
+  .shade-row.play .shade:nth-child(1){transition-delay:0s}
+  .shade-row.play .shade:nth-child(2){transition-delay:.15s}
+  .shade-row.play .shade:nth-child(3){transition-delay:.3s}
+  .shade-row.play .shade:nth-child(4){transition-delay:.45s}
+  .shade:nth-child(1){background:#e8d8a3}
+  .shade:nth-child(2){background:#eee0bc}
+  .shade:nth-child(3){background:#f5eeda}
+  .shade:nth-child(4){background:#fff;color:var(--violet);border:1.5px solid var(--lilac-soft);box-shadow:0 8px 22px rgba(75,33,166,.14);font-weight:700}
+  @media(min-width:640px){.shade-row{justify-content:center}}
+
+  /* moment C: convenience + self-dissolving — reversed split, image second on desktop */
+  .res-convenience{padding:0 0 100px}
+  .res-conv-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;padding:0 24px;max-width:1180px;margin:0 auto}
+  .res-conv-copy .eyebrow{display:block;margin-bottom:16px}
+  .res-conv-copy h3{font-family:'Spectral';font-size:clamp(22px,5vw,28px);font-weight:600;margin-bottom:10px;max-width:14ch}
+  .res-conv-copy p{font-size:15px;color:var(--muted);max-width:36ch;line-height:1.5}
+  .res-conv-img{border-radius:20px;overflow:hidden;background:var(--lilac-soft)}
+  .res-conv-img img{width:100%;aspect-ratio:1/1;object-fit:contain;padding:28px}
+  @media(min-width:900px){.res-conv-grid{grid-template-columns:1fr 1fr;gap:64px}}
 
   /* ================= 7. HOW TO USE — premium timeline, generous breathing room ================= */
   #how-to-use{background:var(--paper);padding:100px 0}
@@ -546,21 +574,40 @@
   </div>
 </section>
 
-<!-- ================= 6. REASONS — editorial split, plain numbered list, no icon tiles ================= -->
+<!-- ================= 6. RESULTS & BENEFITS — outcome-led, editorial, aspirational ================= -->
 <section id="features">
-  <div class="wrap">
-    <div class="feat-grid">
-      <div class="feat-copy">
-        <span class="eyebrow rv">Reasons it's magic</span>
-        <h2 class="rv">Whitening, minus the rituals.</h2>
-        <div class="feat-list">
-          <div class="freason rv"><span class="fn">01</span><div><b>4X whiter</b><span>Up to 4 shades in 7 days.</span></div></div>
-          <div class="freason rv"><span class="fn">02</span><div><b>Nothing to peel</b><span>Dissolves fully on its own.</span></div></div>
-          <div class="freason rv"><span class="fn">03</span><div><b>Zero sensitivity</b><span>Peroxide-free, clinically proven.</span></div></div>
-          <div class="freason rv"><span class="fn">04</span><div><b>Anywhere, anytime</b><span>14 pocket-size mint strips.</span></div></div>
-        </div>
+
+  <!-- moment A: lifestyle hero — dominant image, one confident outcome statement -->
+  <div class="res-hero">
+    <div class="res-photo rv"><img src="assets-web/Perfora2875.jpg" alt="Woman laughing while holding Purple Magic Whitening Strips" loading="lazy" style="object-position:50% 15%"></div>
+    <div class="res-copy rv">
+      <span class="eyebrow">The result</span>
+      <h2>Visibly whiter. Confidently yours.</h2>
+      <p>PAP-powered whitening, backed by science — visible results without compromising enamel.</p>
+    </div>
+  </div>
+
+  <!-- moment B: shade comparison — abstract visual, swipeable on mobile -->
+  <div class="shade-block">
+    <span class="eyebrow">Visible whitening</span>
+    <h3>Up to 4 shades whiter in 7 days.</h3>
+    <div class="shade-row" id="shadeRow">
+      <div class="shade">Day 1</div>
+      <div class="shade">Day 3</div>
+      <div class="shade">Day 5</div>
+      <div class="shade">Day 7</div>
+    </div>
+  </div>
+
+  <!-- moment C: convenience + self-dissolving — reversed split -->
+  <div class="res-convenience">
+    <div class="res-conv-grid">
+      <div class="res-conv-copy rv">
+        <span class="eyebrow">Convenient by design</span>
+        <h3>One strip. Twice daily. Done.</h3>
+        <p>Self-dissolving technology means no peeling, no extra step — it fits into the routine you already have.</p>
       </div>
-      <div class="feat-photo rv"><img src="assets-web/Perfora2875.jpg" alt="Woman laughing while holding Purple Magic Whitening Strips" loading="lazy" style="object-position:50% 15%"></div>
+      <div class="res-conv-img rv"><img src="assets-web/IMG_0047_1.jpg" alt="Purple Magic Whitening Strips pack" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -732,6 +779,12 @@
   document.querySelectorAll('.moment').forEach(m=>{
     new IntersectionObserver(([e],obs)=>{if(e.isIntersecting){m.classList.add('play');obs.disconnect()}},{threshold:.4}).observe(m);
   });
+
+  // results & benefits: shade swatches reveal sequentially once in view, one-shot
+  const shadeRow=document.getElementById('shadeRow');
+  if(shadeRow){
+    new IntersectionObserver(([e],obs)=>{if(e.isIntersecting){shadeRow.classList.add('play');obs.disconnect()}},{threshold:.5}).observe(shadeRow);
+  }
 
   // how-to-use: connecting line fills once the timeline is in view; each step settles its number + dissolves the final accent
   const stepsTrack=document.getElementById('stepsTrack');
